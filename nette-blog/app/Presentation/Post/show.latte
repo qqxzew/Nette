@@ -8,3 +8,19 @@
 
 
 <div class="post">{$post->content}</div>
+
+{control commentForm}
+
+<h2>Comments</h2>
+
+<div class="comments">
+    {foreach $comments as $comment}
+        <p><b><a href="mailto:{$comment->email}" n:tag-if="$comment->email">
+                    {$comment->name}
+                </a></b> wrote:</p>
+
+        <div>{$comment->content}</div>
+    {/foreach}
+</div>
+
+<a n:href="Edit:edit $post->id"> Change post</a>
